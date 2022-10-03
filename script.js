@@ -1,0 +1,28 @@
+$(document).ready(function(){
+
+    $('.gallery-buttons').click(function(){
+
+        $(this).addClass('active').siblings().removeClass('active');
+
+        var filter = $(this).attr('data-filter')
+
+        if(filter == 'all-members'){
+            $('.image ').show(400);
+        } else {
+            $('.image ').not('.' + filter).hide(200);
+            $('.image ').filter('.' + filter).show(200);
+        }
+
+    });
+
+    $('.gallery').magnificPopup({
+
+        delegate:'a',
+        type:'image',
+        gallery:{
+            enabled:true
+        }
+
+    });
+
+});
